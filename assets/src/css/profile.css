@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.profile-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid #0064d2; /* eBay's blue */
+}
+
+.profile-header h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin: 0.5rem 0;
+}
+
+.profile-header .email {
+    font-size: 1rem;
+    color: #777;
+}
+
+.profile-nav {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: #0064d2;
+    color: #fff;
+}
+
+.profile-section {
+    margin-bottom: 2rem;
+}
+
+.profile-section h3 {
+    font-size: 1.5rem;
+    color: #0064d2;
+    margin-bottom: 0.5rem;
+}
+
+.profile-section p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.btn {
+    flex: 1;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-btn {
+    background-color: #0064d2;
+    color: #fff;
+}
+
+.edit-btn:hover {
+    background-color: #004a99;
+}
+
+.logout-btn {
+    background-color: #ff4d4d;
+    color: #fff;
+}
+
+.logout-btn:hover {
+    background-color: #cc0000;
+}

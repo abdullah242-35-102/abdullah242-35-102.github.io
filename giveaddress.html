@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Give Address</title>
+    <link rel="stylesheet" href="assets/src/css/style.css">
+</head>
+<body>
+    <div class="address-container">
+        <h1>Provide Your Address</h1>
+        <form id="address-form">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" placeholder="Enter your address" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn">Proceed to Payment</button>
+        </form>
+
+        <!-- Payment Options -->
+        <div id="payment-options" class="hidden">
+            <h2>Select Payment Option</h2>
+            <button class="btn payment-option" data-method="cod">Cash on Delivery</button>
+            <button class="btn payment-option" data-method="bkash">Bkash</button>
+            <button class="btn payment-option" data-method="nagad">Nagad</button>
+        </div>
+    </div>
+    <script src="assets/src/js/address.js"></script>
+</body>
+</html>

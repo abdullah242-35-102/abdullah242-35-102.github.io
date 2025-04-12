@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nagad Payment</title>
+    <link rel="stylesheet" href="assets/src/css/style.css">
+</head>
+<body>
+    <div class="payment-container">
+        <h1>Nagad Payment</h1>
+        <p>Enter your Nagad account details to complete the payment.</p>
+        <form id="nagad-form">
+            <div class="form-group">
+                <label for="nagad-number">Nagad Number</label>
+                <input type="tel" id="nagad-number" name="nagad-number" placeholder="Enter your Nagad number" required>
+            </div>
+            <div class="form-group">
+                <label for="nagad-pin">Nagad PIN</label>
+                <input type="password" id="nagad-pin" name="nagad-pin" placeholder="Enter your Nagad PIN" required>
+            </div>
+            <button type="submit" class="btn">Pay Now</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById("nagad-form").addEventListener("submit", (e) => {
+            e.preventDefault();
+            alert("Payment successful via Nagad!");
+            window.location.href = "giveaddress.html";
+        });
+    </script>
+</body>
+</html>
