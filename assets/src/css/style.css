@@ -27,6 +27,21 @@
     align-items: center;
     gap: 2rem;
 }
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Same as width for a perfect circle */
+    background-color: #f0f0f0; /* Background color for the logo */
+    border-radius: 50%; /* Makes it circular */
+    font-size: 18px; /* Adjust font size as needed */
+    font-weight: bold;
+    color: #333; /* Text color */
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better appearance */
+    border: 2px solid #ccc; /* Optional: Add border */
+}
 
 .hamburger-menu {
     display: none;
