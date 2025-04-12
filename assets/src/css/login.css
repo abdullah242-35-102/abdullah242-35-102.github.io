@@ -1,3 +1,7 @@
+{
+    border:border-box;
+    font-fafily: sans-sefri;
+}
 .login-container {
     display: flex;
     justify-content: center;
