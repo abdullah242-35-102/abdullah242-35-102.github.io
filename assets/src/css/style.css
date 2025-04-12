@@ -31,8 +31,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100px; /* Adjust size as needed */
-    height: 100px; /* Same as width for a perfect circle */
+    width: 90px; /* Adjust size as needed */
+    height: 90px; /* Same as width for a perfect circle */
     background-color: #f0f0f0; /* Background color for the logo */
     border-radius: 50%; /* Makes it circular */
     font-size: 18px; /* Adjust font size as needed */
@@ -43,8 +43,8 @@
     border: 2px solid #ccc; /* Optional: Add border */
 }
 .logo img {
-    width: 100px; /* Set the width to 100px */
-    height: 100px; /* Set the height to 100px */
+    width: 90px; /* Set the width to 100px */
+    height: 90px; /* Set the height to 100px */
     border-radius: 50%; /* Make the image round */
     object-fit: cover; /* Ensure the image fits within the circle */
 }
