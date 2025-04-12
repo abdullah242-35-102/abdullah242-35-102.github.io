@@ -42,6 +42,12 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better appearance */
     border: 2px solid #ccc; /* Optional: Add border */
 }
+.logo img {
+    width: 100px; /* Set the width to 100px */
+    height: 100px; /* Set the height to 100px */
+    border-radius: 50%; /* Make the image round */
+    object-fit: cover; /* Ensure the image fits within the circle */
+}
 
 .hamburger-menu {
     display: none;
