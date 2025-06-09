@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - My App</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f5f7fa;
+        }
+
+        .dashboard-wrapper {
+            padding: 20px;
+        }
+
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: transparent;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .dashboard-header {
+            width: 100%;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-header h2 {
+            margin: 0;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            font-size: 1.1rem;
+        }
+
+        #user-name {
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .btn-logout {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: 15px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-logout i {
+            margin-right: 5px;
+        }
+
+        .btn-logout:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .dashboard-sidebar {
+            width: 280px;
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 25px 0;
+            height: fit-content;
+        }
+
+        .dashboard-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .dashboard-sidebar li {
+            margin-bottom: 5px;
+        }
+
+        .dashboard-sidebar a {
+            display: flex;
+            align-items: center;
+            padding: 12px 25px;
+            color: #555;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            font-weight: 500;
+        }
+
+        .dashboard-sidebar a i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+            color: #777;
+            transition: all 0.3s ease;
+        }
+
+        .dashboard-sidebar a:hover, .dashboard-sidebar a.active {
+            background-color: #f0f7ff;
+            border-left-color: #3498db;
+            color: #3498db;
+        }
+
+        .dashboard-sidebar a:hover i, .dashboard-sidebar a.active i {
+            color: #3498db;
+        }
+
+        .dashboard-main {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .dashboard-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .dashboard-card {
+            background-color: white;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-card h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .dashboard-card h3 i {
+            margin-right: 10px;
+            color: #3498db;
+            font-size: 1.4rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .stat-card {
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .stat-card:hover {
+            background-color: #f0f7ff;
+            border-color: #d0e3ff;
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 5px 0;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .activity-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .activity-item {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .activity-item:hover {
+            background-color: #f0f7ff;
+            transform: translateX(5px);
+        }
+
+        .activity-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .activity-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #e1f0fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: #3498db;
+            font-size: 1.2rem;
+        }
+
+        .activity-details {
+            flex: 1;
+        }
+
+        .activity-text {
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .activity-date {
+            color: #7f8c8d;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .activity-date i {
+            margin-right: 5px;
+            font-size: 0.8rem;
+        }
+
+        .recommendations {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .recommendation-item {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #eee;
+        }
+
+        .recommendation-item:hover {
+            background-color: #f0f7ff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-color: #d0e3ff;
+        }
+
+        .recommendation-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            background-color: #e1f0fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: #3498db;
+            font-size: 1.3rem;
+        }
+
+        .recommendation-details h4 {
+            margin: 0 0 5px 0;
+            font-size: 1rem;
+            color: #2c3e50;
+        }
+
+        .recommendation-details p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #7f8c8d;
+        }
+
+        .welcome-message {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+        }
+
+        .quick-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .quick-action-btn {
+            background-color: white;
+            color: #3498db;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .quick-action-btn i {
+            margin-right: 8px;
+        }
+
+        .quick-action-btn:hover {
+            background-color: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        @media screen and (max-width: 992px) {
+            .dashboard-container {
+                flex-direction: column;
+            }
+
+            .dashboard-sidebar {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .dashboard-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .dashboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .user-info {
+                margin-top: 15px;
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .welcome-message {
+                margin-top: 10px;
+            }
+
+            .quick-actions {
+                flex-wrap: wrap;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .recommendations {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modern Navigation bar -->
+    <nav class="navbar">
+        <a href="index.html" class="navbar-brand">
+            <span>MyApp</span>
+        </a>
+
+        <div class="navbar-toggle">☰</div>
+
+        <ul class="navbar-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li class="dropdown">
+                <a href="services.html">Services</a>
+                <div class="dropdown-content">
+                    <a href="services/webdev.html">Web Development</a>
+                    <a href="services/mobileapps.html">Mobile Apps</a>
+                    <a href="services/uxdesign.html">UI/UX Design</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="products.html">Products</a>
+                <div class="dropdown-content">
+                    <a href="products/software.html">Software</a>
+                    <a href="products/templates.html">Templates</a>
+                    <a href="products/plugins.html">Plugins</a>
+                </div>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="dashboard.html" class="active">Dashboard</a></li>
+        </ul>
+
+        <div class="navbar-search">
+            <input type="text" class="search-input" placeholder="Search...">
+        </div>
+    </nav>
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-header">
+            <div>
+                <h2>Dashboard</h2>
+                <p class="welcome-message">Welcome back, <span id="user-name">John Doe</span>!</p>
+                <div class="quick-actions">
+                    <button class="quick-action-btn"><i class="fas fa-plus"></i> New Project</button>
+                    <button class="quick-action-btn"><i class="fas fa-upload"></i> Upload Files</button>
+                    <button class="quick-action-btn"><i class="fas fa-cog"></i> Settings</button>
+                </div>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">JD</div>
+                <button id="logout-btn" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </div>
+
+        <div class="dashboard-container">
+            <div class="dashboard-sidebar">
+                <ul>
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> Overview</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                    <li><a href="#"><i class="fas fa-history"></i> Activities</a></li>
+                    <li><a href="#"><i class="fas fa-folder"></i> Projects</a></li>
+                    <li><a href="#"><i class="fas fa-tasks"></i> Tasks</a></li>
+                    <li><a href="#"><i class="fas fa-calendar"></i> Calendar</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li><a href="#"><i class="fas fa-question-circle"></i> Help & Support</a></li>
+                </ul>
+            </div>
+
+            <div class="dashboard-main">
+                <div class="dashboard-content">
+                    <div class="dashboard-card">
+                        <h3><i class="fas fa-chart-pie"></i> Activity Summary</h3>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class="fas fa-sign-in-alt"></i></div>
+                                <div class="stat-value">12</div>
+                                <div class="stat-label">Total Logins</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class="fas fa-eye"></i></div>
+                                <div class="stat-value">5</div>
+                                <div class="stat-label">Products Viewed</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class="fas fa-search"></i></div>
+                                <div class="stat-value">3</div>
+                                <div class="stat-label">Services Explored</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class="fas fa-download"></i></div>
+                                <div class="stat-value">2</div>
+                                <div class="stat-label">Downloads</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h3><i class="fas fa-history"></i> Recent Activities</h3>
+                        <ul class="activity-list">
+                            <li class="activity-item">
+                                <div class="activity-content">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-sign-in-alt"></i>
+                                    </div>
+                                    <div class="activity-details">
+                                        <div class="activity-text">Logged in to the application</div>
+                                        <div class="activity-date"><i class="far fa-clock"></i> Today, 10:30 AM</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="activity-item">
+                                <div class="activity-content">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-laptop-code"></i>
+                                    </div>
+                                    <div class="activity-details">
+                                        <div class="activity-text">Viewed Web Development service details</div>
+                                        <div class="activity-date"><i class="far fa-clock"></i> Yesterday, 3:45 PM</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="activity-item">
+                                <div class="activity-content">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-download"></i>
+                                    </div>
+                                    <div class="activity-details">
+                                        <div class="activity-text">Downloaded Software product template</div>
+                                        <div class="activity-date"><i class="far fa-clock"></i> Yesterday, 2:20 PM</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="activity-item">
+                                <div class="activity-content">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-user-edit"></i>
+                                    </div>
+                                    <div class="activity-details">
+                                        <div class="activity-text">Updated profile information</div>
+                                        <div class="activity-date"><i class="far fa-clock"></i> May 15, 2023, 11:15 AM</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="dashboard-card full-width">
+                        <h3><i class="fas fa-lightbulb"></i> Recommended for You</h3>
+                        <p>Based on your activities, you might be interested in these services and products:</p>
+                        <div class="recommendations">
+                            <a href="services/mobileapps.html" class="recommendation-item">
+                                <div class="recommendation-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="recommendation-details">
+                                    <h4>Mobile App Development</h4>
+                                    <p>Create custom mobile applications</p>
+                                </div>
+                            </a>
+                            <a href="products/templates.html" class="recommendation-item">
+                                <div class="recommendation-icon">
+                                    <i class="fas fa-file-code"></i>
+                                </div>
+                                <div class="recommendation-details">
+                                    <h4>Premium Templates</h4>
+                                    <p>Professional design templates</p>
+                                </div>
+                            </a>
+                            <a href="services/uxdesign.html" class="recommendation-item">
+                                <div class="recommendation-icon">
+                                    <i class="fas fa-paint-brush"></i>
+                                </div>
+                                <div class="recommendation-details">
+                                    <h4>UI/UX Design Services</h4>
+                                    <p>User-centered design solutions</p>
+                                </div>
+                            </a>
+                            <a href="#" class="recommendation-item">
+                                <div class="recommendation-icon">
+                                    <i class="fas fa-server"></i>
+                                </div>
+                                <div class="recommendation-details">
+                                    <h4>Cloud Hosting</h4>
+                                    <p>Reliable and scalable hosting</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include external JavaScript file -->
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/auth.js"></script>
+</body>
+</html>

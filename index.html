@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeraNai</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Modern Navigation bar -->
+    <nav class="navbar">
+        <a href="index.html" class="navbar-brand">
+            <span>PeraNai</span>
+        </a>
+
+        <div class="navbar-toggle">☰</div>
+
+        <ul class="navbar-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li class="dropdown">
+                <a href="services.html">Services</a>
+                <div class="dropdown-content">
+                    <a href="services/webdev.html">Web Development</a>
+                    <a href="services/mobileapps.html">Mobile Apps</a>
+                    <a href="services/uxdesign.html">UI/UX Design</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="products.html">Products</a>
+                <div class="dropdown-content">
+                    <a href="products/software.html">Software</a>
+                    <a href="products/templates.html">Templates</a>
+                    <a href="products/plugins.html">Plugins</a>
+                </div>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+
+        <div class="navbar-search">
+            <input type="text" class="search-input" placeholder="Search...">
+        </div>
+    </nav>
+
+    <!-- Hero Section with Slider -->
+    <section class="hero-section">
+        <div class="slider">
+            <div class="slide active" style="background-image: url('https://source.unsplash.com/random/1600x900/?technology')">
+                <div class="slide-content">
+                    <h2>Welcome to MyApp</h2>
+                    <p>Innovative solutions for modern problems</p>
+                    <a href="about.html" class="slide-btn">Learn More</a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('https://source.unsplash.com/random/1600x900/?business')">
+                <div class="slide-content">
+                    <h2>Boost Your Business</h2>
+                    <p>Powerful tools to help you grow</p>
+                    <a href="services.html" class="slide-btn">Get Started</a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('https://source.unsplash.com/random/1600x900/?design')">
+                <div class="slide-content">
+                    <h2>Beautiful Design</h2>
+                    <p>Crafted with attention to detail</p>
+                    <a href="products.html" class="slide-btn">View Portfolio</a>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <div class="slider-dot active" data-slide="0"></div>
+                <div class="slider-dot" data-slide="1"></div>
+                <div class="slider-dot" data-slide="2"></div>
+            </div>
+            <div class="slider-arrow slider-prev">&#10094;</div>
+            <div class="slider-arrow slider-next">&#10095;</div>
+        </div>
+    </section>
+
+    <!-- Main content goes here -->
+    <div class="container">
+        <h1 data-text="Welcome to My App">Welcome to My App</h1>
+        <p>This is a futuristic web application with a cutting-edge design and intuitive interface.</p>
+        <p>Explore our innovative services and products to find next-generation solutions tailored to your needs.</p>
+
+        <div class="features-section">
+            <div class="feature-card">
+                <i class="fas fa-rocket"></i>
+                <h3>Fast & Reliable</h3>
+                <p>Our platform is optimized for speed and performance, ensuring a smooth experience for all users.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure & Private</h3>
+                <p>Your data security is our priority. We implement the latest security measures to protect your information.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-sync-alt"></i>
+                <h3>Regular Updates</h3>
+                <p>We continuously improve our platform with new features and enhancements based on user feedback.</p>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Ready to get started?</h2>
+            <p>Join thousands of satisfied users who have already transformed their digital experience.</p>
+            <div class="cta-buttons">
+                <a href="register.html" class="btn btn-lg">Create Account</a>
+                <a href="services.html" class="btn btn-outline btn-lg">Explore Services</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <p>MyApp is a modern web application designed to provide innovative solutions for businesses and individuals.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="services/webdev.html">Web Development</a></li>
+                    <li><a href="services/mobileapps.html">Mobile Apps</a></li>
+                    <li><a href="services/uxdesign.html">UI/UX Design</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Main Street, City, Country</li>
+                    <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                    <li><i class="fas fa-envelope"></i> info@myapp.com</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 PeraNai. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- Include external JavaScript file -->
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</body>
+</html>

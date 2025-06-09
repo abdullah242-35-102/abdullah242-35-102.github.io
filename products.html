@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products - My App</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Modern Navigation bar -->
+    <nav class="navbar">
+        <a href="index.html" class="navbar-brand">
+            <span>MyApp</span>
+        </a>
+
+        <div class="navbar-toggle">☰</div>
+
+        <ul class="navbar-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li class="dropdown">
+                <a href="services.html">Services</a>
+                <div class="dropdown-content">
+                    <a href="services/webdev.html">Web Development</a>
+                    <a href="services/mobileapps.html">Mobile Apps</a>
+                    <a href="services/uxdesign.html">UI/UX Design</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="products.html" class="active">Products</a>
+                <div class="dropdown-content">
+                    <a href="products/software.html">Software</a>
+                    <a href="products/templates.html">Templates</a>
+                    <a href="products/plugins.html">Plugins</a>
+                </div>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+
+        <div class="navbar-search">
+            <input type="text" class="search-input" placeholder="Search...">
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container">
+        <h1>Our Products</h1>
+
+        <div class="products-intro">
+            <h2>What We Offer</h2>
+            <p>At MyApp, we develop high-quality digital products designed to enhance your productivity and streamline your workflow. Our products are built with attention to detail and a focus on user experience.</p>
+
+            <p>Whether you're looking for enterprise software solutions, ready-to-use templates, or powerful plugins to extend your existing tools, we have a range of products to meet your needs.</p>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://source.unsplash.com/random/600x400/?software')"></div>
+                <div class="product-content">
+                    <h3>Software Solutions</h3>
+                    <p>Enterprise-grade software applications designed to solve complex business challenges and improve operational efficiency.</p>
+                    <div class="product-price">Starting at $499</div>
+                    <a href="products/software.html" class="btn">View Details</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://source.unsplash.com/random/600x400/?template')"></div>
+                <div class="product-content">
+                    <h3>Premium Templates</h3>
+                    <p>Professional design templates for websites, presentations, and marketing materials to help you create stunning visuals.</p>
+                    <div class="product-price">Starting at $49</div>
+                    <a href="products/templates.html" class="btn">View Details</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://source.unsplash.com/random/600x400/?plugin')"></div>
+                <div class="product-content">
+                    <h3>Powerful Plugins</h3>
+                    <p>Extend the functionality of your favorite platforms with our collection of feature-rich plugins and add-ons.</p>
+                    <div class="product-price">Starting at $29</div>
+                    <a href="products/plugins.html" class="btn">View Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include external JavaScript file -->
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/auth.js"></script>
+</body>
+</html>

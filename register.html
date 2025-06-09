@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - My App</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .auth-page {
+            min-height: calc(100vh - 70px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+        }
+
+        .auth-container {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 8px 15px rgba(0, 0, 0, 0.07);
+            background-color: #ffffff;
+        }
+
+        .auth-image {
+            flex: 1;
+            background-image: url('https://source.unsplash.com/random/1000x1000/?innovation');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .auth-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.8) 0%, rgba(41, 128, 185, 0.9) 100%);
+        }
+
+        .auth-image-content {
+            position: relative;
+            color: white;
+            text-align: center;
+            padding: 0 30px;
+            max-width: 400px;
+        }
+
+        .auth-image-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .auth-image-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .auth-form {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-height: 700px;
+            overflow-y: auto;
+        }
+
+        .auth-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: #f8f9fa;
+        }
+
+        .form-control:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+            background-color: #fff;
+        }
+
+        .form-icon {
+            position: absolute;
+            left: 15px;
+            top: 42px;
+            color: #aaa;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus + .form-icon {
+            color: #3498db;
+        }
+
+        .form-check {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-check-input {
+            margin-right: 10px;
+            margin-top: 3px;
+            width: 18px;
+            height: 18px;
+            accent-color: #3498db;
+        }
+
+        .form-check label {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .form-check a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .form-check a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #2980b9 0%, #2573a7 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(41, 128, 185, 0.3);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            color: #777;
+        }
+
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .divider span {
+            padding: 0 15px;
+            font-size: 0.9rem;
+        }
+
+        .social-login {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .btn-social {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-social i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .btn-google {
+            background-color: #DB4437;
+        }
+
+        .btn-facebook {
+            background-color: #4267B2;
+        }
+
+        .btn-social:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .auth-links {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.95rem;
+        }
+
+        .auth-links a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .auth-links a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        .password-strength {
+            height: 5px;
+            margin-top: 8px;
+            border-radius: 3px;
+            background-color: #e0e0e0;
+            overflow: hidden;
+        }
+
+        .password-strength-meter {
+            height: 100%;
+            width: 0;
+            transition: width 0.3s ease, background-color 0.3s ease;
+        }
+
+        .password-strength-text {
+            font-size: 0.8rem;
+            margin-top: 5px;
+            color: #777;
+        }
+
+        @media (max-width: 768px) {
+            .auth-container {
+                flex-direction: column;
+                max-width: 500px;
+            }
+
+            .auth-image {
+                display: none;
+            }
+
+            .auth-form {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modern Navigation bar -->
+    <nav class="navbar">
+        <a href="index.html" class="navbar-brand">
+            <span>MyApp</span>
+        </a>
+
+        <div class="navbar-toggle">☰</div>
+
+        <ul class="navbar-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li class="dropdown">
+                <a href="services.html">Services</a>
+                <div class="dropdown-content">
+                    <a href="services/webdev.html">Web Development</a>
+                    <a href="services/mobileapps.html">Mobile Apps</a>
+                    <a href="services/uxdesign.html">UI/UX Design</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="products.html">Products</a>
+                <div class="dropdown-content">
+                    <a href="products/software.html">Software</a>
+                    <a href="products/templates.html">Templates</a>
+                    <a href="products/plugins.html">Plugins</a>
+                </div>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+
+        <div class="navbar-search">
+            <input type="text" class="search-input" placeholder="Search...">
+        </div>
+    </nav>
+
+    <div class="auth-page">
+        <div class="auth-container">
+            <div class="auth-image">
+                <div class="auth-image-content">
+                    <h2>Join Our Community</h2>
+                    <p>Create an account to access exclusive features, personalized recommendations, and connect with our growing community of users.</p>
+                </div>
+            </div>
+            <div class="auth-form">
+                <h2 class="auth-title">Create Your Account</h2>
+
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" id="fullname" class="form-control" placeholder="Enter your full name" required>
+                        <i class="fas fa-user form-icon"></i>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                        <i class="fas fa-envelope form-icon"></i>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="form-control" placeholder="Create a password" required>
+                        <i class="fas fa-lock form-icon"></i>
+                        <div class="password-strength">
+                            <div class="password-strength-meter"></div>
+                        </div>
+                        <div class="password-strength-text">Password strength: <span id="password-strength-value">None</span></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" class="form-control" placeholder="Confirm your password" required>
+                        <i class="fas fa-check-circle form-icon"></i>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" id="terms" class="form-check-input" required>
+                        <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                    </div>
+
+                    <button type="submit" class="btn-block btn-primary">Create Account</button>
+                </form>
+
+                <div class="divider"><span>OR SIGN UP WITH</span></div>
+
+                <div class="social-login">
+                    <a href="#" class="btn-social btn-google">
+                        <i class="fab fa-google"></i> Google
+                    </a>
+
+                    <a href="#" class="btn-social btn-facebook">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </a>
+                </div>
+
+                <div class="auth-links">
+                    <p>Already have an account? <a href="login.html">Sign In</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include external JavaScript file -->
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script>
+        // Password strength meter
+        document.getElementById('password').addEventListener('input', function() {
+            const password = this.value;
+            const meter = document.querySelector('.password-strength-meter');
+            const strengthText = document.getElementById('password-strength-value');
+
+            // Simple password strength calculation
+            let strength = 0;
+            if (password.length > 0) strength += 20;
+            if (password.length >= 8) strength += 20;
+            if (/[A-Z]/.test(password)) strength += 20;
+            if (/[0-9]/.test(password)) strength += 20;
+            if (/[^A-Za-z0-9]/.test(password)) strength += 20;
+
+            // Update meter width and color
+            meter.style.width = strength + '%';
+
+            if (strength <= 20) {
+                meter.style.backgroundColor = '#ff4d4d';
+                strengthText.textContent = 'Very Weak';
+                strengthText.style.color = '#ff4d4d';
+            } else if (strength <= 40) {
+                meter.style.backgroundColor = '#ffa64d';
+                strengthText.textContent = 'Weak';
+                strengthText.style.color = '#ffa64d';
+            } else if (strength <= 60) {
+                meter.style.backgroundColor = '#ffff4d';
+                strengthText.textContent = 'Medium';
+                strengthText.style.color = '#9e9e00';
+            } else if (strength <= 80) {
+                meter.style.backgroundColor = '#4dff4d';
+                strengthText.textContent = 'Strong';
+                strengthText.style.color = '#4dff4d';
+            } else {
+                meter.style.backgroundColor = '#4d4dff';
+                strengthText.textContent = 'Very Strong';
+                strengthText.style.color = '#4d4dff';
+            }
+        });
+    </script>
+</body>
+</html>
