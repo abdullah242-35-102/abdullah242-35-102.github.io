@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse and filter the full YourStore product catalog.">
+  <title>Shop | YourStore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css"><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/components.css"><link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="shop">
+  <div id="site-top"></div>
+  <main>
+    <section class="page-hero"><div class="container"><span class="eyebrow">Explore the catalog</span><h1>Shop</h1><p>Search, compare and filter products to find exactly what you need.</p></div></section>
+    <section class="section">
+      <div class="container shop-layout">
+        <aside class="filter-panel" id="filter-panel" aria-label="Product filters">
+          <div class="filter-mobile-head"><strong>Filters</strong><button type="button" data-close-filters aria-label="Close filters">×</button></div>
+          <fieldset><legend>Category</legend><div id="category-filters" class="check-list"></div></fieldset>
+          <fieldset><legend>Price</legend>
+            <label><input type="radio" name="price" value="all" checked> All prices</label>
+            <label><input type="radio" name="price" value="under50"> Under $50</label>
+            <label><input type="radio" name="price" value="50-100"> $50–$100</label>
+            <label><input type="radio" name="price" value="100-500"> $100–$500</label>
+            <label><input type="radio" name="price" value="500plus"> $500+</label>
+          </fieldset>
+          <fieldset><legend>Rating</legend>
+            <label><input type="radio" name="rating" value="0" checked> Any rating</label>
+            <label><input type="radio" name="rating" value="4"> 4★ and above</label>
+            <label><input type="radio" name="rating" value="3"> 3★ and above</label>
+          </fieldset>
+          <fieldset><legend>Availability</legend><label><input type="checkbox" id="in-stock-only"> In stock only</label></fieldset>
+          <button class="btn btn-outline btn-block" id="clear-filters" type="button">Clear Filters</button>
+        </aside>
+        <div class="shop-content">
+          <div class="shop-toolbar">
+            <button class="btn btn-outline filter-toggle" type="button" data-open-filters>Filters</button>
+            <p id="result-count">Loading products…</p>
+            <label class="sort-label">Sort by
+              <select id="sort-products">
+                <option value="featured">Featured</option><option value="price-asc">Price Low to High</option><option value="price-desc">Price High to Low</option><option value="rating">Best Rating</option><option value="popular">Most Popular</option><option value="newest">Newest</option>
+              </select>
+            </label>
+          </div>
+          <div id="shop-products" class="product-grid"></div>
+          <div id="shop-empty" class="empty-state hidden"><div class="empty-icon">⌕</div><h2>No products found</h2><p>Try a broader search or clear some filters.</p><button class="btn btn-primary" type="button" id="empty-clear">Clear Filters</button></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="site-bottom"></div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

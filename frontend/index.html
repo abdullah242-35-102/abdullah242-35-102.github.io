@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop electronics, fashion, home essentials and accessories at YourStore with secure checkout and easy returns.">
+  <meta property="og:title" content="YourStore | Electronics, Fashion & Everyday Essentials">
+  <meta property="og:description" content="Premium products, smart deals and a fast modern shopping experience.">
+  <meta property="og:type" content="website">
+  <title>YourStore | Electronics, Fashion & Everyday Essentials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="home">
+  <div id="site-top"></div>
+  <main>
+    <section class="hero" aria-label="Featured promotions">
+      <div class="hero-slider" id="hero-slider">
+        <article class="hero-slide is-active" data-slide="0">
+          <div class="container hero-grid">
+            <div class="hero-copy">
+              <span class="eyebrow">Premium tech picks</span>
+              <h1>Upgrade Your Everyday Tech</h1>
+              <p>Discover premium electronics at unbeatable prices, selected for work, play and life on the go.</p>
+              <a class="btn btn-primary btn-lg" href="shop.html?category=Electronics">Shop Now</a>
+            </div>
+            <img src="assets/images/hero-tech.svg" alt="Modern electronics collection" class="hero-art">
+          </div>
+        </article>
+        <article class="hero-slide" data-slide="1">
+          <div class="container hero-grid">
+            <div class="hero-copy">
+              <span class="eyebrow">Fresh arrivals</span>
+              <h2>New Season. New Style.</h2>
+              <p>Explore comfortable essentials and polished everyday pieces designed for an effortless wardrobe refresh.</p>
+              <a class="btn btn-primary btn-lg" href="shop.html?category=Fashion">Explore Collection</a>
+            </div>
+            <img src="assets/images/hero-style.svg" alt="Fashion collection" class="hero-art">
+          </div>
+        </article>
+        <article class="hero-slide" data-slide="2">
+          <div class="container hero-grid">
+            <div class="hero-copy">
+              <span class="eyebrow">Limited-time savings</span>
+              <h2>Smart Deals Up To 40% Off</h2>
+              <p>Save on customer favorites across electronics, accessories, fashion and home essentials while offers last.</p>
+              <a class="btn btn-primary btn-lg" href="#deals">View Deals</a>
+            </div>
+            <img src="assets/images/hero-deals.svg" alt="Limited time ecommerce deals" class="hero-art">
+          </div>
+        </article>
+        <button class="slider-arrow slider-prev" type="button" aria-label="Previous slide">‹</button>
+        <button class="slider-arrow slider-next" type="button" aria-label="Next slide">›</button>
+        <div class="slider-dots" role="tablist" aria-label="Hero slides"></div>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <div class="section-heading">
+          <div><span class="eyebrow">Find your favorite</span><h2>Shop by Category</h2></div>
+          <a href="shop.html" class="text-link">Browse all products →</a>
+        </div>
+        <div id="category-grid" class="category-grid"></div>
+      </div>
+    </section>
+
+    <section class="section bg-soft">
+      <div class="container">
+        <div class="section-heading">
+          <div><span class="eyebrow">Curated for you</span><h2>Featured Products</h2></div>
+          <a href="shop.html?sort=featured" class="text-link">View all →</a>
+        </div>
+        <div id="featured-products" class="product-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="promo-wrap">
+      <div class="container">
+        <div class="promo-banner">
+          <div>
+            <span class="eyebrow light">Summer Sale</span>
+            <h2>UP TO 40% OFF</h2>
+            <p>Limited time only. Upgrade your essentials before the best deals disappear.</p>
+            <a class="btn btn-light" href="shop.html?deals=1">Shop Deals</a>
+          </div>
+          <div class="promo-orb" aria-hidden="true">40<span>%</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="deals">
+      <div class="container">
+        <div class="section-heading deal-heading">
+          <div><span class="eyebrow">Ending soon</span><h2>Today's Deals</h2></div>
+          <div class="countdown" id="deal-countdown" aria-label="Deal countdown"></div>
+        </div>
+        <div id="deal-products" class="product-grid"></div>
+      </div>
+    </section>
+
+    <section class="section bg-soft">
+      <div class="container">
+        <div class="section-heading"><div><span class="eyebrow">Just landed</span><h2>New Arrivals</h2></div></div>
+        <div id="new-products" class="product-grid"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading"><div><span class="eyebrow">Customer favorites</span><h2>Best Sellers</h2></div></div>
+        <div id="best-products" class="product-grid"></div>
+      </div>
+    </section>
+
+    <section class="section section-tight bg-soft">
+      <div class="container">
+        <div class="benefit-grid" id="benefits"></div>
+      </div>
+    </section>
+
+    <section class="newsletter-section">
+      <div class="container newsletter-card">
+        <div><span class="eyebrow light">Stay in the loop</span><h2>Get Special Offers & Updates</h2><p>New arrivals, private discounts and useful product drops—straight to your inbox.</p></div>
+        <form id="newsletter-form" class="newsletter-form" novalidate>
+          <label class="sr-only" for="newsletter-email">Email address</label>
+          <input id="newsletter-email" name="email" type="email" placeholder="Enter your email" autocomplete="email" required>
+          <button class="btn btn-light" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <div id="site-bottom"></div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
